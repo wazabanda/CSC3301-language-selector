@@ -26,8 +26,8 @@ load_dotenv()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["127.0.0.1","csc3301-language-selector.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'csc3301-language-selector.up.railway.app']
 
 # Application definition
 
