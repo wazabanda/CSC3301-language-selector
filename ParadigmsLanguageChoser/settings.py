@@ -27,7 +27,7 @@ load_dotenv()
 DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1","csc3301-language-selector.up.railway.app"]
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'csc3301-language-selector.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://csc3301-language-selector.up.railway.app']
 
 # Application definition
 
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'ParadigmsLanguageChoser.urls'
