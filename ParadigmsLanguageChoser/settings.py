@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ('secret')
+SECRET_KEY = os.environ.get('secret')
 load_dotenv()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,16 +77,16 @@ WSGI_APPLICATION = 'ParadigmsLanguageChoser.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-        'ATOMIC_REQUESTS': True,
+        'ENGINE': 'django.db.backends.sqlite3' if os.environ.get("engine") == "" else os.environ.get("engine"),
+        'NAME': BASE_DIR / 'db.sqlite3' if os.environ.get("PGDATABASE") == "" else os.environ.get("PGDATABASE"),
+        'USER': os.environ.get("PGUSER"),
+        'PASSWORD': os.environ.get("PGPASSWORD"),
+        'HOST': os.environ.get("PGHOST"),
+        'PORT': os.environ.get("PGPORT"),
+
     }
 }
-
+print(DATABASES)
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
