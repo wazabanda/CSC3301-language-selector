@@ -1,0 +1,1 @@
+web: gunicorn ParadigmsLanguageChoser.wsgi --log-file -
